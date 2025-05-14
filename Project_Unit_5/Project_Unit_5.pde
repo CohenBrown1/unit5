@@ -4,6 +4,7 @@ color red = #FF0000;
 color blue = #001BFF;
 color white = #FFFFFF;
 color black = #000000;
+color purple = #6700A7;
 color ground = #483A3A;
 
 //while loop
@@ -48,6 +49,8 @@ void setup () {
   vx = 2;
   vy = 2;
 
+
+  
   while (y>=0) {
     fill(random(0, 225));
     rect(a, a, y, y);
@@ -55,6 +58,7 @@ void setup () {
     a=a+40;
   }
   bkg = get(0, 0, width, height);
+  
 }
 
 void draw() {
@@ -62,42 +66,50 @@ void draw() {
   //a=0;
   background(bkg);
 
+  fill(purple);
+  stroke(purple);
+  rect(0,0,600,80);
+  rect(0,0,80,600);
+  rect(0,520,600,80);
+  rect(520,0,80,600);
+  
+  
   //DEATHBALLZ 1
  
 
   //walls
   //p1
-  if (player1x <= 10) {
-    player1x = 13;
+  if (player1x <= 90) {
+    player1x = 93;
   }
 
-  if (player1x >= 590) {
-    player1x = 587;
+  if (player1x >= 510) {
+    player1x = 507;
   }
 
-  if (player1y <= 10) {
-    player1y = 13;
+  if (player1y <= 90) {
+    player1y = 93;
   }
 
-  if (player1y >= 590) {
-    player1y = 587;
+  if (player1y >= 510) {
+    player1y = 507;
   }
 
   //p2
-  if (player2x <= 10) {
-    player2x = 13;
+  if (player2x <= 90) {
+    player2x = 93;
   }
 
-  if (player2x >= 590) {
-    player2x = 587;
+  if (player2x >= 510) {
+    player2x = 507;
   }
 
-  if (player2y <= 10) {
-    player2y = 13;
+  if (player2y <= 90) {
+    player2y = 93;
   }
 
-  if (player2y >= 590) {
-    player2y = 587;
+  if (player2y >= 510) {
+    player2y = 507;
   }
 
   //p1
@@ -141,7 +153,9 @@ void draw() {
   if (ball1y >= 550) vy = vy * -1.1;
   
   deathball(ball1x, ball1y);
-  
+ 
+  vx = constrain(vx, -10, 10);  
+  vy = constrain(vy, -11, 11);
   //speed cap
 }
 
