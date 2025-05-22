@@ -1,5 +1,11 @@
 //Cohen Brown Unit 5
 
+int mode;
+final int INTRO = 1;
+final int GAME  = 2;
+final int PAUSE = 3;
+final int GAMEOVER = 4;
+
 color red = #FF0000;
 color blue = #001BFF;
 color white = #FFFFFF;
@@ -29,7 +35,9 @@ PImage bkg;
 
 void setup () {
   size(600, 600, P2D);
-
+  
+  mode = INTRO;
+  
   player1x = width/2;
   player1y = height/2;
   player1d = 25;
@@ -73,8 +81,16 @@ void draw() {
   rect(0,520,600,80);
   rect(520,0,80,600);
   
+  //game over que
   
-  //DEATHBALLZ 1
+    if (dist(player1x, player1y, ball1x, ball1y) <= (player1d/2 + ball1d)) {
+    gameOver();
+  }
+  
+  if (dist(player2x, player2y, ball1x, ball1y) <= (player2d/2 + ball1d)) {
+    gameOver();
+  }
+ 
  
 
   //walls
@@ -199,4 +215,12 @@ void keyReleased() {
   if (keyCode == DOWN) downKey = false;
   if (keyCode == RIGHT) rightKey = false;
   if (keyCode == LEFT) leftKey = false;
+}
+
+void gameOver() {
+  textSize(32);
+  fill(255, 0, 0);
+  textAlign(CENTER, CENTER);
+  text("GAME OVER", width / 2, height / 2);
+  noLoop(); // Stop the game
 }
