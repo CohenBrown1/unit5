@@ -8,18 +8,6 @@ void game() {
   rect(0,0,80,600);
   rect(0,520,600,80);
   rect(520,0,80,600);
-  
-  //game over que
-  
-    if (dist(player1x, player1y, ball1x, ball1y) <= (player1d/2 + ball1d)) {
-    gameOverRed();
-  }
-  
-  if (dist(player2x, player2y, ball1x, ball1y) <= (player2d/2 + ball1d)) {
-    gameOverBlue();
-  }
- 
- 
 
   //walls
   //p1
@@ -97,11 +85,20 @@ void game() {
   if (ball1y >= 550) vy = vy * -1.1;
   
   deathball(ball1x, ball1y);
- 
+  
+  //speedcap
   vx = constrain(vx, -10, 10);  
   vy = constrain(vy, -11, 11);
-  //speed cap
+  
 
+  //game over que
+    if (dist(player1x, player1y, ball1x, ball1y) <= (player1d/2 + ball1d)) {
+    gameOverRed();
+  }
+  
+  if (dist(player2x, player2y, ball1x, ball1y) <= (player2d/2 + ball1d)) {
+    gameOverBlue();
+  }
 }
 
 void gameClicks() {

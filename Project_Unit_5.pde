@@ -71,22 +71,6 @@ void setup () {
   
 }
 
-void draw() {
-  println(wKey, aKey, sKey, dKey);
-  
-  if (mode == INTRO) {
-    intro();
-  } else if (mode == GAME) {
-    game();
-  } else if (mode == PAUSE) {
-    pause();
-  } else if (mode == GAMEOVER) {
-    gameOverBlue();
-  } else if (mode == GAMEOVER) {
-    gameOverRed();
-  }
-}
-
 void deathball(float x, float y) {
   pushMatrix();
   translate(x, y);
@@ -102,5 +86,20 @@ void ball() {
     ellipse(0, 0, x, x);
     x=x-10;
   }
-  //ballbkg = get();
+}
+
+void draw() {
+  println(wKey, aKey, sKey, dKey);
+  
+  if (mode == INTRO) {
+    intro();
+  } else if (mode == GAME) {
+    game();
+  } else if (mode == PAUSE) {
+    pause();
+  } else if (mode == GAMEOVER) {
+    gameOverBlue();
+  } else if (mode == GAMEOVER) {
+    gameOverRed();
+  }
 }
