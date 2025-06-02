@@ -2,8 +2,8 @@ void game() {
   
   background(bkg);
 
-  fill(purple);
-  stroke(purple);
+  fill(randomColor);
+  noStroke();
   rect(0,0,600,80);
   rect(0,0,80,600);
   rect(0,520,600,80);

@@ -14,6 +14,11 @@ color black = #000000;
 color purple = #6700A7;
 color ground = #483A3A;
 
+color randomColor;
+color randomColor2;
+color randomColor3;
+
+
 //while loop
 float y=600;
 float x=600;
@@ -39,6 +44,10 @@ void setup () {
   
   mode = INTRO;
   
+  randomColor = color(random(0, 255), random(0, 255), random(0, 255));
+  randomColor2 = color(random(0, 255), random(0, 255), random(0, 255));
+  randomColor3 = color(random(0, 255), random(0, 255), random(0, 255));
+  
   player1x = width/2;
   player1y = height/2;
   player1d = 25;
@@ -55,11 +64,8 @@ void setup () {
   ball2y = 50;
   ball2d = 50;
 
-  vx = 2;
-  vy = 2;
-
-  
-
+  vx = random(1) < 0.5 ? 2 : -2;
+  vy = random(1) < 0.5 ? 2 : -2;
   
   while (y>=0) {
     fill(random(0, 225));
@@ -78,11 +84,13 @@ void deathball(float x, float y) {
   popMatrix();
 }
 
+
+
 void ball() {
-  x=100;
+  float x=100;
   noStroke();
   while (x>=0) {
-    fill( map(x, 100, 10, 255, 0), 0, map(x, 100, 10, 255, 0) );
+    fill(lerpColor(randomColor3, randomColor2, x/100  ));
     ellipse(0, 0, x, x);
     x=x-10;
   }
